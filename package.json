@@ -1,0 +1,20 @@
+{
+    "name": "align-diarized-text",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start:example": "node src/example-usage.js",
+        "start:transcribe": "node  --experimental-worker  ./src/generate-transcripts/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@bbc/stt-align-node": "^1.1.0",
+        "alignment-from-stt": "^1.0.2",
+        "convert-csv-to-json": "0.0.15",
+        "node-timecodes": "^2.5.0",
+        "pocketsphinx-stt": "^3.0.0-alpha.2"
+    }
+}
