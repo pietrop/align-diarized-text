@@ -42,7 +42,7 @@ const res = alignDiraizedText(linesWithSpeaker, sttJson);
 ```
 
 
-To troubleshoot the aligement you can also use `generateInteractiveTranscript`, see [example usage in `/src/generate-html-to-check-alignement/`](./src/generate-html-to-check-alignement/example-usage.js) to generate an `index.html` file to troubleshoot the aligement.
+To troubleshoot the aligement you can also use `generateInteractiveTranscript`, see [example usage in `/src/generate-html-to-check-alignement/`](./src/generate-html-to-check-alignement/example-usage.js) to generate an `index.html` file.
 
 ### **input:**
 
