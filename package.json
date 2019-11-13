@@ -4,9 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start:example": "node src/example-usage.js",
-        "start:transcribe": "node  --experimental-worker  ./src/generate-transcripts/index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start:add-timecodes-to-quotes": "node src/add-timecodes-to-quotes/example-usage.js",
+        "start:generate-html-to-check-alignement": "node src/generate-html-to-check-alignement/example-usage.js",
+        "open:demo": "open public/index.html",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "publish:public": "npm publish dist --access public",
+        "publish:dry:run": "npm publish --dry-run"
     },
     "author": "",
     "license": "MIT",
@@ -16,5 +19,10 @@
         "convert-csv-to-json": "0.0.15",
         "node-timecodes": "^2.5.0",
         "pocketsphinx-stt": "^3.0.0-alpha.2"
+    },
+    "devDependencies": {
+        "i": "^0.3.6",
+        "npm": "^6.13.0",
+        "uuid": "^3.3.3"
     }
 }

@@ -1,13 +1,10 @@
 const fs = require('fs');
-const path = require('path');
 const addTimecodesToQuotes = require('./index.js');
-const csvFileInputName = './debates-quotes-csv/debate_quotes - 26th.tsv';
-const debate26 = require('../../debates/Democratic Presidential Debate - June 26 (Full) | NBC News/assemblyai-transcript.json')
-const debate26thTitle = "NBC NEWS HOLDS DEMOCRATIC PRESIDENTIAL CANDIDATES DEBATE";
 
-const debateJsonSegmentedTimes = path.join(process.cwd(), 'timed-quotes-output', 'debate-26.json')
+const linesWithSpeaker = require('../../sample-data/input-example.json');
+const sttJson = require('../../sample-data/stt-transcript.json')
 
-const res = addTimecodesToQuotes(csvFileInputName, debate26);
-// console.log(res)
+const res = addTimecodesToQuotes(linesWithSpeaker, sttJson);
+console.log(JSON.stringify(res, null, 2))
 // console.log('done')
-fs.writeFileSync(debateJsonSegmentedTimes, JSON.stringify(res, null, 2));
+fs.writeFileSync('./sample-data/aligned-output.json', JSON.stringify(res, null, 2));

@@ -1,7 +1,6 @@
-const csvToJson = require('convert-csv-to-json');
+
 const align = require('alignment-from-stt');
 const alignSTT = require('@bbc/stt-align-node').alignSTT;
-const fs = require('fs');
 
 function findWordsRangeForQuoteInTranscript(quote, words){
     const quoteStart = quote.start;
@@ -12,13 +11,7 @@ function findWordsRangeForQuoteInTranscript(quote, words){
     return wordResults;
 }
 
-function addTimecodesToQuotes(csvFileInputName, sttTranscript) {
-    /**
-     * Converting CSV file to json
-     */
-    // TODO: issue in having, as separator value.
-    const json = csvToJson.fieldDelimiter('\t').getJsonFromCsv(csvFileInputName);
-
+function addTimecodesToQuotes(linesWithSpeaker, sttTranscript) {
     /**
      * helper function 
      * @param {string} text - eg '"id"' returns string 'id' without extra "
@@ -31,7 +24,7 @@ function addTimecodesToQuotes(csvFileInputName, sttTranscript) {
         return text.replace(/\\/g, '')
     }
 
-    const sanitizedCsvToJson = json.map((quote) => {
+    const sanitizedLinesWithSpeaker = linesWithSpeaker.map((quote) => {
         const res = {};
         Object.keys(quote).forEach((key) => {
             const keySanitzed = removeQuotations(key);
@@ -43,32 +36,29 @@ function addTimecodesToQuotes(csvFileInputName, sttTranscript) {
         return res;
     })
 
-    // // prep quotes from CSV for alignement. 
+    // // prep quotes from linesWithSpeaker for alignement. 
     // // to be all in one string, separated by new line
-    // console.log(sanitizedCsvToJson) 
-    // fs.writeFileSync('./sanitized.json', JSON.stringify(sanitizedCsvToJson,null,2))
-    const humanCorrectedTranscription = sanitizedCsvToJson.map((quote) => {
-        return quote.body
+    const humanCorrectedTranscription = sanitizedLinesWithSpeaker.map((quote) => {
+        return quote.text
     }).join('\n')
 
 
     // Need to align the accurate text with json of words via diffing algo
     // to make it easier for later word level alignement to do it's matching.
     const resultAlignedSttWords = alignSTT(sttTranscript, humanCorrectedTranscription);
-    // fs.writeFileSync('./resultAlignedSttWords.json', JSON.stringify(resultAlignedSttWords,null,2));
     // // line level alignement 
     const reAlignedTranscription = align(humanCorrectedTranscription, resultAlignedSttWords, 'text', false);
 
-    // add word level timecodes to the quote o j
+    // add word level timecodes to the line / quote 
     const reAlignedTranscriptionWithWords = reAlignedTranscription.map((quote)=>{
         const wordsInRange = findWordsRangeForQuoteInTranscript(quote, resultAlignedSttWords);
         quote.words = wordsInRange;
         return quote;
     })
     // add speakers back to sentences
-    const quotesWithTiems = sanitizedCsvToJson.map((quote) => {
+    const quotesWithTiems = sanitizedLinesWithSpeaker.map((quote) => {
         const match = reAlignedTranscriptionWithWords.find((elem) => {
-            return quote.body === elem.text;
+            return quote.text === elem.text;
         })
         if (match) {
             return {...match, ...quote }

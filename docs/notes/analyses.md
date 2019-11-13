@@ -1,9 +1,8 @@
 # Analyses
 
-time per speaker, who speaks most over their allotted time, etc
+Restoring timecodes to speaker diarized accurate transcription.
 
 ## Steps to prep
-
 
 ### Option 1
 
@@ -14,8 +13,6 @@ time per speaker, who speaks most over their allotted time, etc
 - correct speaker segmentstion (https://github.com/bbc/react-transcript-editor)
 - export in DPE json format to get corrected speaker segmentation 
 
-
-
 ### Option 2
 
 - install pocketsphinx locally [`OpenNewsLabs/pocketsphinx-stt`](https://github.com/OpenNewsLabs/pocketsphinx-stt)
@@ -23,8 +20,6 @@ time per speaker, who speaks most over their allotted time, etc
 - import in [@bbc/react-transcript-editor demo](https://bbc.github.io/react-transcript-editor/?path=/story/*)
     - add speaker labels and review speakers segmentation 
     - export dpe json 
-
-
 
 ### option 3 
 

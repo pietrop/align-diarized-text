@@ -1,4 +1,4 @@
-const htmlWrapper = (data) => `<!doctype html>
+const htmlWrapper = (data, styles) => `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -11,6 +11,9 @@ const htmlWrapper = (data) => `<!doctype html>
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" 
     integrity="sha256-piqEf7Ap7CMps8krDQsSOTZgF+MU/0MPyPW2enj5I40=" 
     crossorigin="anonymous" />
+    <style>
+      ${styles}
+    </style>
 </head>
 <body>
 ${data}

@@ -1,5 +1,7 @@
+const fs = require('fs');
 const timecodes = require('node-timecodes');
 const htmlWrapper = require('./html-wrapper.js');
+const styles = fs.readFileSync('./src/generate-html-to-check-alignement/styles.css')
 
 const generateTitle = (title) => `<h1 class="article_header">${title}</h1>`;
 
@@ -11,7 +13,7 @@ const generateAudioElement = (audioUrl) => `<div class="containerAudio">
 // if we have word level timings for a line, make word level interactivity
 // otherwise stick with line level
 const generateLines = (line) => {
-    let result = `<strong>${line.name}</strong>:  
+    let result = `<strong>${line.speaker}</strong>:  
                  <span class="words" data-start=${line.start}>${timecodes.fromSeconds(line.start)} </span> - <span class="words" data-start=${line.end}>${timecodes.fromSeconds(line.end)}</span><br>`;
     if(line.words){
         line.words.forEach((word)=>{
@@ -37,7 +39,7 @@ const generateInteractiveTranscriptHtml = (title, audioUrl, transcript) => {
     const transcriptElement = `<article>${generateTranscript(transcript)}</article>`;
     const podcastTitle = generateTitle(title);
     const data = `${audioElement}<div class="container">${podcastTitle}${transcriptElement}</div>`;
-    return htmlWrapper(data);
+    return htmlWrapper(data, styles);
 };
 
 
