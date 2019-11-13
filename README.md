@@ -72,7 +72,7 @@ This could be initially originated from a `.tsv` or `.csv` file, and converted t
 STT array of timecoded words, This is generated from video/audio file of the debate. see [`sample-data`](./sample-data) folder more.
 
 ### **Output**
-View [`timed-quotes-output`](./timed-quotes-output) folder for example output.
+View [`sample-data`](./sample-data) folder for example output.
 
 Something like this 
 
