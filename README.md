@@ -23,9 +23,21 @@ cd align-diarized-text
 
 ## Usage
 
-_TBC_
+```
+npm install align-diarized-text
+```
 
-For now read the [docs notes](./docs/notes) as very much work in progress.
+see [example usage in ](./src/add-timecodes-to-quotes/example-usage.js)
+
+```js
+const addTimecodesToQuotes = require('./index.js');
+
+const linesWithSpeaker = require('../../sample-data/input-example.json');
+const sttJson = require('../../sample-data/stt-transcript.json')
+
+const res = addTimecodesToQuotes(linesWithSpeaker, sttJson);
+// do something with output json 
+```
 
 ### **input:**
 

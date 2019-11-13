@@ -1,14 +1,14 @@
 {
     "name": "align-diarized-text",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "",
-    "main": "index.js",
+    "main": "src/index.js",
     "scripts": {
         "start:add-timecodes-to-quotes": "node src/add-timecodes-to-quotes/example-usage.js",
         "start:generate-html-to-check-alignement": "node src/generate-html-to-check-alignement/example-usage.js",
         "open:demo": "open public/index.html",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "publish:public": "npm publish dist --access public",
+        "publish:public": "npm publish --access public",
         "publish:dry:run": "npm publish --dry-run"
     },
     "author": "",
