@@ -2,9 +2,9 @@ const htmlWrapper = (data, styles) => `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Interactive Podcast</title>
+  <title>Interactive Transcript</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Interactive Podcast">
+  <meta name="description" content="Interactive Transcript">
   <meta name="Test" content="Test">
   <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" 
