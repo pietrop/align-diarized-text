@@ -21,23 +21,28 @@ git clone git@github.com:pietrop/align-diarized-text.git
 cd align-diarized-text
 ```
 
+See [docs notes 'analyses'](./docs/notes/analyses.md) for more info on getting the media and transcripts, in the right format for this.
+
 ## Usage
 
 ```
 npm install align-diarized-text
 ```
 
-see [example usage in ](./src/add-timecodes-to-quotes/example-usage.js)
+see [example usage in `/src/add-timecodes-to-quotes/`](./src/add-timecodes-to-quotes/example-usage.js)
 
 ```js
-const addTimecodesToQuotes = require('./index.js');
+const alignDiraizedText = require('./index.js');
 
 const linesWithSpeaker = require('../../sample-data/input-example.json');
 const sttJson = require('../../sample-data/stt-transcript.json')
 
-const res = addTimecodesToQuotes(linesWithSpeaker, sttJson);
+const res = alignDiraizedText(linesWithSpeaker, sttJson);
 // do something with output json 
 ```
+
+
+To troubleshoot the aligement you can also use `generateInteractiveTranscript`, see [example usage in `/src/generate-html-to-check-alignement/`](./src/generate-html-to-check-alignement/example-usage.js) to generate an `index.html` file to troubleshoot the aligement.
 
 ### **input:**
 
@@ -64,7 +69,7 @@ This could be initially originated from a `.tsv` or `.csv` file, and converted t
 
 
 #### 2. STT
-STT array of timecoded words, This is generated from video/audio file of the debate. see [docs notes 'debates-links'](./docs/notes/debates-links.md) for more on this.
+STT array of timecoded words, This is generated from video/audio file of the debate. see [`sample-data`](./sample-data) folder more.
 
 ### **Output**
 View [`timed-quotes-output`](./timed-quotes-output) folder for example output.
@@ -100,6 +105,7 @@ Something like this
 <!-- _High level overview of system architecture_ -->
 
 _TBC_
+
 
 ## Documentation
 
