@@ -11,8 +11,16 @@
         "publish:public": "npm publish --access public",
         "publish:dry:run": "npm publish --dry-run"
     },
-    "author": "",
+    "author": "Pietro Passarelli",
     "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/pietrop/align-diarized-text/issues"
+    },
+    "homepage": "https://github.com/pietrop/align-diarized-text",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/pietrop/align-diarized-text.git"
+    },
     "dependencies": {
         "@bbc/stt-align-node": "^1.1.0",
         "alignment-from-stt": "^1.0.2",
