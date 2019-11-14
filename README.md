@@ -8,6 +8,8 @@ _Work in progress_
 
 A module to align stt transcription with accurate text that has got speaker labels.
 
+For when you already have a transcription, eg in a csv file, with speaker names but no timecodes. And you want to add timecodes but not lose the speaker labels (or the accurate text).
+
 
 ## Setup
 <!-- _stack - optional_
