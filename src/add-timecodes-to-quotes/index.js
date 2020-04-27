@@ -1,6 +1,6 @@
 
 const align = require('alignment-from-stt');
-const alignSTT = require('@bbc/stt-align-node').alignSTT;
+const alignSTT = require('stt-align-node').alignSTT;
 
 function findWordsRangeForQuoteInTranscript(quote, words){
     const quoteStart = quote.start;

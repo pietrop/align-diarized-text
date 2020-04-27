@@ -1,7 +1,5 @@
-const fs = require('fs');
 const timecodes = require('node-timecodes');
 const htmlWrapper = require('./html-wrapper.js');
-const styles = fs.readFileSync('./src/generate-html-to-check-alignement/styles.css')
 
 const generateTitle = (title) => `<h1 class="article_header">${title}</h1>`;
 
@@ -39,7 +37,7 @@ const generateInteractiveTranscriptHtml = (title, audioUrl, transcript) => {
     const transcriptElement = `<article>${generateTranscript(transcript)}</article>`;
     const podcastTitle = generateTitle(title);
     const data = `${audioElement}<div class="container">${podcastTitle}${transcriptElement}</div>`;
-    return htmlWrapper(data, styles);
+    return htmlWrapper(data);
 };
 
 

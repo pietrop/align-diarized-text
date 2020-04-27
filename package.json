@@ -14,19 +14,19 @@
     "author": "Pietro Passarelli",
     "license": "MIT",
     "bugs": {
-      "url": "https://github.com/pietrop/align-diarized-text/issues"
+        "url": "https://github.com/pietrop/align-diarized-text/issues"
     },
     "homepage": "https://github.com/pietrop/align-diarized-text",
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/pietrop/align-diarized-text.git"
+        "type": "git",
+        "url": "git+https://github.com/pietrop/align-diarized-text.git"
     },
     "dependencies": {
-        "@bbc/stt-align-node": "^1.1.0",
         "alignment-from-stt": "^1.0.2",
         "convert-csv-to-json": "0.0.15",
         "node-timecodes": "^2.5.0",
-        "pocketsphinx-stt": "^3.0.0-alpha.2"
+        "pocketsphinx-stt": "^3.0.0-alpha.2",
+        "stt-align-node": "^1.1.6"
     },
     "devDependencies": {
         "i": "^0.3.6",
