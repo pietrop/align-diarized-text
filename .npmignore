@@ -24,3 +24,5 @@ src/sample-data/
 
 sample-data/
 public/
+ src/generate-html-to-check-alignement/example-usage.js
+ *.test.js  
