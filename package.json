@@ -7,7 +7,7 @@
         "start:add-timecodes-to-quotes": "node src/add-timecodes-to-quotes/example-usage.js",
         "start:generate-html-to-check-alignement": "node src/generate-html-to-check-alignement/example-usage.js",
         "open:demo": "open public/index.html",
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "publish:public": "npm publish --access public",
         "publish:dry:run": "npm publish --dry-run"
     },
@@ -30,6 +30,7 @@
     },
     "devDependencies": {
         "i": "^0.3.6",
+        "jest": "^25.4.0",
         "npm": "^6.13.0",
         "uuid": "^3.3.3"
     }

@@ -67,7 +67,9 @@ function addTimecodesToQuotes(linesWithSpeaker, sttTranscript) {
 
     // quick fix - removing null element at the end of array
     // need to look into why there's a null element tho
-    quotesWithTiems.pop()
+    // if(!quotesWithTiems[quotesWithTiems.length-1]){
+    //     quotesWithTiems.pop()
+    // }
     return quotesWithTiems;
 }
 
