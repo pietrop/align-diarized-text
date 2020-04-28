@@ -1,5 +1,5 @@
 
-const align = require('alignment-from-stt');
+const align = require('../alignment-from-stt');
 const alignSTT = require('stt-align-node').alignSTT;
 
 function findWordsRangeForQuoteInTranscript(quote, words){
@@ -48,7 +48,7 @@ function addTimecodesToQuotes(linesWithSpeaker, sttTranscript) {
     const resultAlignedSttWords = alignSTT(sttTranscript, humanCorrectedTranscription);
     // // line level alignement 
     const reAlignedTranscription = align(humanCorrectedTranscription, resultAlignedSttWords, 'text', false);
-
+    console.log('reAlignedTranscription', reAlignedTranscription[reAlignedTranscription.length-1]);
     // add word level timecodes to the line / quote 
     const reAlignedTranscriptionWithWords = reAlignedTranscription.map((quote)=>{
         const wordsInRange = findWordsRangeForQuoteInTranscript(quote, resultAlignedSttWords);
