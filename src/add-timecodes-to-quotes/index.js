@@ -56,7 +56,7 @@ function addTimecodesToQuotes(linesWithSpeaker, sttTranscript) {
         return quote;
     })
     // add speakers back to sentences
-    const quotesWithTiems = sanitizedLinesWithSpeaker.map((quote) => {
+    const quotesWithTimes = sanitizedLinesWithSpeaker.map((quote) => {
         const match = reAlignedTranscriptionWithWords.find((elem) => {
             return quote.text === elem.text;
         })
@@ -67,10 +67,17 @@ function addTimecodesToQuotes(linesWithSpeaker, sttTranscript) {
 
     // quick fix - removing null element at the end of array
     // need to look into why there's a null element tho
-    // if(!quotesWithTiems[quotesWithTiems.length-1]){
-    //     quotesWithTiems.pop()
-    // }
-    return quotesWithTiems;
+ 
+
+    // remove any null elements 
+    const quotesWithTimesNoNullElements = quotesWithTimes.filter((p)=>{
+        if(p){
+            return p
+        }
+    })
+
+
+    return quotesWithTimesNoNullElements;
 }
 
 module.exports = addTimecodesToQuotes;
