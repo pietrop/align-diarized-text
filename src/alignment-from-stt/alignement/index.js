@@ -84,7 +84,7 @@ function align(accurateBaseText, automatedTranscription, textAttributeName = 'te
         // handling last line of input
         if(automatedTranscription.length-1 === i){
             // just to make sure the line is not already in there 
-            if(transcript[transcript.length-1].text!==accurateBaseTextLines[currentLineCounter]){
+            if(transcript.length < 1 || (transcript[transcript.length-1].text!==accurateBaseTextLines[currentLineCounter])){
                 transcript.push({
                     start: currentStart,
                     end: currentWord.end,
