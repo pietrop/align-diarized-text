@@ -2750,3 +2750,79 @@ test.skip('align automated text with timecodes with correct text no timecodes', 
 
     expect(reAlignedTranscription).toEqual(expectedOutput);
 });
+
+it('Should work with one-paragraph transcriptions', () => {
+    const accurateBase = "Testing testing. This is the first sentence. This is the second sentence.";
+    const automatedTranscription = [
+        {
+            "end": 2.3,
+            "start": 1.9,
+            "text": "Testing"
+        },
+        {
+            "end": 3.7,
+            "start": 2.3,
+            "text": "testing."
+        },
+        {
+            "end": 3.9,
+            "start": 3.7,
+            "text": "This"
+        },
+        {
+            "end": 4.1,
+            "start": 3.9,
+            "text": "is"
+        },
+        {
+            "end": 4.2,
+            "start": 4.1,
+            "text": "the"
+        },
+        {
+            "end": 4.6,
+            "start": 4.2,
+            "text": "first"
+        },
+        {
+            "end": 6.1,
+            "start": 4.6,
+            "text": "sentence."
+        },
+        {
+            "end": 6.3,
+            "start": 6.1,
+            "text": "This"
+        },
+        {
+            "end": 6.4,
+            "start": 6.3,
+            "text": "is"
+        },
+        {
+            "end": 6.6,
+            "start": 6.4,
+            "text": "the"
+        },
+        {
+            "end": 6.9,
+            "start": 6.6,
+            "text": "second"
+        },
+        {
+            "start": 6.9,
+            "end": 7.6,
+            "text": "sentence."
+        }
+    ];
+
+    const tracked = jest.fn(() => align(accurateBase, automatedTranscription, "text", false))
+    tracked();
+    expect(tracked).toReturnWith([
+        {
+            "start": 1.9,
+            "end": 7.6,
+            "text": "Testing testing. This is the first sentence. This is the second sentence."
+        }
+    ])
+})
