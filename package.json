@@ -24,6 +24,7 @@
     "dependencies": {
         "alignment-from-stt": "^1.0.2",
         "convert-csv-to-json": "0.0.15",
+        "fastest-levenshtein": "^1.0.12",
         "node-timecodes": "^2.5.0",
         "pocketsphinx-stt": "^3.0.0-alpha.2",
         "stt-align-node": "^1.1.6"

@@ -3,7 +3,7 @@
  * to do line level alignement. 
  */
 // Word Error Rate, WER, algorithm module 
-const Levenshtein = require('fast-levenshtein');
+const {distance} = require('fastest-levenshtein');
 const textSegmentation = require('../text-segmentation/index.js');
 
 // const alignJSONText = require('../align-json-to-text/index.js')
@@ -95,7 +95,7 @@ function align(accurateBaseText, automatedTranscription, textAttributeName = 'te
             }
         }
         
-        const dist = Levenshtein.get(lineWithNewWordFromAutomatedText, currentLineFromBaseText)
+        const dist = distance(lineWithNewWordFromAutomatedText, currentLineFromBaseText)
             // distance calculate is inferior to current distance, 
             // means you are adding the word, coz it's matching the original string in base transcription line
             // if the distance is getting smaller you found right word and adding to the sentence.
